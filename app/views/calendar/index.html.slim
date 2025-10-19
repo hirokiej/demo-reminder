@@ -1,0 +1,8 @@
+h2 Googleカレンダー
+
+ul
+  - @schedules.each  do |event|
+    li
+      strong = event[:summary]
+      br
+      | 開始: #[event[:start].strftime(;)]
