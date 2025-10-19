@@ -1,0 +1,2 @@
+class AddLineAccecctoUser < ApplicationRecord
+end
