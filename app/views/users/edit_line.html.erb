@@ -1,0 +1,19 @@
+<h2>LINE公式アカウント情報の登録</h2>
+
+<%= form_with model: current_user, url: update_line_user_path, method: :patch do |f| %>
+  <div>
+    <%= f.label :line_channel_id %>
+    <%= f.text_field :line_channel_id %>
+  </div>
+  <div>
+    <%= f.label :line_channel_secret %>
+    <%= f.text_field :line_channel_secret %>
+  </div>
+  <div>
+    <%= f.label :line_channel_access_token %>
+    <%= f.text_field :line_channel_access_token %>
+  </div>
+  <div>
+    <%= f.submit "保存" %>
+  </div>
+<% end %>
