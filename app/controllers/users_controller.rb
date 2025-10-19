@@ -6,9 +6,10 @@ class UsersController < ApplicationController
   def update_line
     @user = current_user
     if @user.update(line_params)
-      redirect_to dashboard_path, notice: "LINE情報更新"
+      redirect_to users_path, notice: "LINE情報更新"
+    else
+      render :edit_line
     end
-    render :edit_line
   end
 
   private

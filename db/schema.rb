@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_19_124847) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_19_150403) do
   create_table "add_line_acceccto_users", force: :cascade do |t|
     t.integer "line_channel_id"
     t.string "channel_secret"
@@ -47,6 +47,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_19_124847) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "line_channel_id"
+    t.string "line_channel_secret"
+    t.string "line_channel_access_token"
   end
 
   add_foreign_key "friends", "users"
