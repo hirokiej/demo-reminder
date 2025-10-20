@@ -1,0 +1,9 @@
+<% if current_user %>
+  <ul>
+    <%= current_user.friends.each do |friend| %>
+      <li>
+        <%= friend.line_display_name %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
