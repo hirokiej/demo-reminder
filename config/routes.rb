@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       patch :update_line
     end
   end
-  post "/callback", to: "linewebhook#callback"
+  post "/linewebhook/callback", to: "linewebhook#callback"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
