@@ -27,12 +27,15 @@ class LinewebhookController < ApplicationController
   def handle_follow(event)
     user_id = event.source.user_id
     return if current_user.friends.exists?(line_user_id: user_id)
-    display_name = client.get_profile(user_id).body['display_name']
+    profile = JSON.parse(client.get_profile(user_id).body)
+    display_name = profile['displayName']
     current_user.friends.create(line_user_id: user_id, line_display_name: display_name)
   end
 
   def handle_message(event)
-    unless current_user.friends.exist?(line_user_id: user_id)
+    user_id = event.source.user_id
+
+    unless current_user.friends.exists?(line_user_id: user_id)
       handle_follow(event)
     end
     client.reply_message(event['replyToken'], { type: 'text', text: "おk" })
