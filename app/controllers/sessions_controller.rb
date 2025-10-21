@@ -3,6 +3,10 @@ class SessionsController < ApplicationController
 
   def create
     if (user = User.find_or_create_from_auth_hash(auth_hash))
+      user.update(
+        google_token: auth_hash.credentials.token,
+        google_refresh_token: auth_hash.credentials.refresh_token,
+      )
       log_in user
     end
     redirect_to root_path
