@@ -1,2 +1,7 @@
 
-<%= @schedules.all %>
+<%@schedules.each do |schedule| %>
+  <li>
+    <%= schedule[:summary] %>
+    <%= schedule[:start] %>
+  </li>
+<% end %>
