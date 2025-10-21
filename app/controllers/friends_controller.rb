@@ -24,7 +24,7 @@ class FriendsController < ApplicationController
     @friend = current_user.friends.find(params[:friend_id])
 
     service = Google::Apis::CalendarV3::CalendarService.new
-    service.authorization = current_user.google_token
+    service = google_service_for(current_user)
 
     calendar_id = 'primary'
     response = service.list_events(calendar_id, max_results: 10, single_events: true, order_by: 'startTime', time_min: Time.now.iso8601)
