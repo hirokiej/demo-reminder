@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_19_150403) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_21_075741) do
   create_table "add_line_acceccto_users", force: :cascade do |t|
     t.integer "line_channel_id"
     t.string "channel_secret"
@@ -50,6 +50,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_19_150403) do
     t.string "line_channel_id"
     t.string "line_channel_secret"
     t.string "line_channel_access_token"
+    t.string "google_token"
+    t.string "google_refresh_token"
   end
 
   add_foreign_key "friends", "users"
