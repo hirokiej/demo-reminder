@@ -1,5 +1,6 @@
 <% @schedules.each do |schedule| %>
-  <%= schedule.summary %>
+  <%= schedule[:summary] %>
+  <%= schedule[:start].strftime("%m月%d日 %H:%M") %>
 <% end %>
 
 <%= link_to "友達一覧へ", friends_path %>

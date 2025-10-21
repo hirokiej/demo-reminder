@@ -12,8 +12,8 @@ class SchedulesController < ApplicationController
     @schedules = response.items.map do |schedule|
       {
         summary: schedule.summary,
-        start: schedule.start.date || schedule.start.date_time,
-        end: schedule.end.date || schedule.end.date_time,
+        start: (schedule.start.date || schedule.start.date_time).in_time_zone('Asia/Tokyo'),
+        end: (schedule.end.date || schedule.end.date_time).in_time_zone('Asia/Tokyo'),
         location: schedule.location
       }
     end

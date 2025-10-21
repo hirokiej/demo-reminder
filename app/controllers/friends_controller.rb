@@ -29,8 +29,16 @@ class FriendsController < ApplicationController
     calendar_id = 'primary'
     response = service.list_events(calendar_id, max_results: 10, single_events: true, order_by: 'startTime', time_min: Time.now.iso8601)
     
-    @schedules = response.items.select do |schedule|
+    filtered_lessons = response.items.select do |schedule|
       schedule.summary.include?(@friend.real_name)
+    end
+
+    @schedules = filtered_lessons.map do |schedule|
+      {
+        summary: schedule.summary,
+        start: (schedule.start.date || schedule.start.date_time).in_time_zone('Asia/Tokyo'),
+        end: (schedule.end.date || schedule.end.date_time).in_time_zone('Asia/Tokyo')
+      }
     end
   end
 
