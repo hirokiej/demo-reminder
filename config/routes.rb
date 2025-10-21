@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: %i[create destroy]
   resources :schedules, only: [:index]
-  resources :friends, only: [:index]
+  resources :friends
   resources :users, only: [] do
     member do
       get :edit_line

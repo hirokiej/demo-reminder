@@ -1,9 +1,14 @@
 <% if current_user %>
   <ul>
-    <%= current_user.friends.each do |friend| %>
-      <li>
-        <%= friend.line_display_name %>
-      </li>
+    <% current_user.friends.each do |friend| %>
+      <%= form_with model: friend, url: friend_path(friend), method: :patch do |f| %>
+        <div>
+          <%= friend.line_display_name %>
+          <%= f.label :real_name, "カレンダーで使っている名前" %>
+          <%= f.text_field :real_name %>
+        </div>
+        <%= f.submit "更新" %>
+      <% end %>
     <% end %>
   </ul>
 <% end %>
