@@ -1,0 +1,11 @@
+<h2>スケジュール一覧</h2>
+
+<ul>
+  <% @schedules.each do |event| %>
+    <li>
+      <strong><%= event.title %></strong><br>
+      開始: <%= event.start_time.strftime('%Y-%m-%d %H:%M') %><br>
+      終了: <%= event.end_time.strftime('%Y-%m-%d %H:%M') %>
+    </li>
+  <% end %>
+</ul>
