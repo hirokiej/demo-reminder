@@ -5,6 +5,8 @@
         <div>
           <%= friend.line_display_name %>
           <%= f.label :real_name, "カレンダーで使っている名前" %>
+          <%= "現在登録している名前:" %>
+          <%= link_to friend.real_name, friend_schedules_path(friend) %>
           <%= f.text_field :real_name %>
         </div>
         <%= f.submit "更新" %>

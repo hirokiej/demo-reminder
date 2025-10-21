@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: %i[create destroy]
   resources :schedules, only: [:index]
-  resources :friends, only: [:index, :show] do
+  resources :friends, only: [:index, :show, :edit] do
     get 'schedules', to: 'friends#schedules'
   end
   resources :users, only: [] do
