@@ -3,4 +3,7 @@
 <% if current_user %>
   <%= current_user.name %>
   <%= current_user.line_channel_id %>
+
+  <%= link_to "スケジュール", schedules_path %>
+  <%= link_to "友達一覧", friends_path %>
 <% end %>
